@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings_dialog_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1C1C2E"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/settings_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dialog Title"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/settings_dialog_input"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="Enter your message here"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:maxLines="6"
+        android:background="#2C2C3C"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#888888"
+        android:padding="10dp" />
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="end"
+    android:layout_marginTop="16dp"
+    android:weightSum="2"
+    android:paddingTop="4dp">
+
+    <Button
+        android:id="@+id/settings_dialog_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Cancel"
+        android:textColor="#FFFFFF"
+        android:background="#444444"
+        android:layout_marginEnd="8dp" />
+
+    <Button
+        android:id="@+id/settings_dialog_send"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Send"
+        android:textColor="#FFFFFF"
+        android:background="#800080" />
+</LinearLayout>
+</LinearLayout>

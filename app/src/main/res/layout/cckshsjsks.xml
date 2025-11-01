@@ -1,0 +1,569 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff0a0e17" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/add_custom"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:background="#ff12182b"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_add"
+            android:elevation="4dp"
+            android:onClick="saveCommand"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="Add Command"
+            android:textAllCaps="false"
+            android:textColor="#ffffffff" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp" >
+
+            <LinearLayout
+                android:id="@+id/commandsListContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp" />
+        </ScrollView>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/formOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#88000000"
+        android:elevation="16dp"
+        android:visibility="visible" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:padding="16dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ff0a0e17"
+                android:orientation="vertical"
+                android:padding="16dp" >
+
+                <TextView
+                    android:id="@+id/CommandConfig"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:text="Command Configuration"
+                    android:textColor="#ffffffff"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Command Name"
+                    android:textColor="#ffffffff"
+                    android:textSize="16sp" />
+                
+                <LinearLayout
+                    android:id="@+id/NameContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+                    
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Name"
+                        app:boxBackgroundColor="#ff12182b"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="#ff00aaff"
+                        app:hintTextColor="#ffa0a0a0">
+    
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nameField"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:inputType="text"
+                            android:paddingTop="8dp"
+                            android:textColor="#ffffffff"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Description"
+                    android:textColor="#ffffffff"
+                    android:textSize="16sp" />
+                
+                <LinearLayout
+                    android:id="@+id/DescriptionContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+                    
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Description"
+                        app:boxBackgroundColor="#ff12182b"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="#ff00aaff"
+                        app:hintTextColor="#ffa0a0a0" >
+    
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/descriptionField"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:inputType="text"
+                            android:paddingTop="8dp"
+                            android:textColor="#ffffffff" />
+                    </com.google.android.material.textfield.TextInputLayout>     
+                </LinearLayout>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Aliases"
+                    android:textColor="#ffffffff"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/aliasesContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="New alias"
+                        app:boxBackgroundColor="#ff12182b"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="#ff00aaff"
+                        app:hintTextColor="#ffa0a0a0" >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/aliasInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:paddingTop="8dp"
+                            android:textColor="#ffffffff" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/addAliasButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="#12182B"
+                        android:text="+"
+                        android:textColor="#ffffffff"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Allowed Users"
+                    android:textColor="#ffffffff"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/allowedUsersContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="User ID"
+                        app:boxBackgroundColor="#ff12182b"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="#ff00aaff"
+                        app:hintTextColor="#ffa0a0a0" >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/allowedUserInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:inputType="number"
+                            android:paddingTop="8dp"
+                            android:textColor="#ffffffff" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/addUserButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="#12182B"
+                        android:text="+"
+                        android:textColor="#ffffffff"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Allowed Channels"
+                    android:textColor="#ffffffff"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/allowedChannelsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Channel ID"
+                        app:boxBackgroundColor="#ff12182b"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="#ff00aaff"
+                        app:hintTextColor="#ffa0a0a0" >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/allowedChannelInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:inputType="number"
+                            android:paddingTop="8dp"
+                            android:textColor="#ffffffff" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/addChannelButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="#12182B"
+                        android:text="+"
+                        android:textColor="#ffffffff"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Allowed Guilds"
+                    android:textColor="#ffffffff"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/allowedGuildsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Guild ID"
+                        app:boxBackgroundColor="#ff12182b"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="#ff00aaff"
+                        app:hintTextColor="#ffa0a0a0" >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/allowedGuildInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:inputType="number"
+                            android:paddingTop="8dp"
+                            android:textColor="#ffffffff" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/addGuildButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="#12182B"
+                        android:text="+"
+                        android:textColor="#ffffffff"
+                        android:textSize="24sp" />
+                </LinearLayout>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Where Allowed"
+                    android:textColor="#ffffffff"
+                    android:textSize="16sp" />
+                <LinearLayout
+                    android:id="@+id/whereAllowedContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp" >
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:id="@+id/allowedInDropdownLayout"
+                        android:layout_width="0dp"  
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"  
+                        android:hint="Allowed In"  
+                        app:boxBackgroundColor="#ff12182b"  
+                        app:boxBackgroundMode="outline"  
+                        app:boxStrokeColor="#ff00aaff"  
+                        app:hintTextColor="#ffa0a0a0" >  
+                      
+                        <AutoCompleteTextView  
+                            android:id="@+id/allowedInDropdown"  
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"  
+                            android:inputType="none"  
+                            android:paddingTop="8dp"  
+                            android:gravity="center_vertical"  
+                            android:textColor="#FFFFFFFF" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/border_background"
+                    android:orientation="vertical"
+                    android:padding="12dp" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="With Prefix"
+                            android:textColor="#ffffffff"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/withPrefixSwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="#FF00AAFF"
+                            android:trackTint="@android:color/darker_gray" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Allowed Global Users"
+                            android:textColor="#ffffffff"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/allowedGlobalUsersSwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="#FF00AAFF"
+                            android:trackTint="@android:color/darker_gray" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Reply"
+                            android:textColor="#ffffffff"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/replySwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="#FF00AAFF"
+                            android:trackTint="@android:color/darker_gray" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Delete Command Trigger"
+                            android:textColor="#ffffffff"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/deleteCommandTriggerSwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:thumbTint="#FF00AAFF"
+                            android:trackTint="@android:color/darker_gray" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Response"
+                        android:textColor="#ffffffff"
+                        android:textSize="16sp" />
+
+                    <ImageButton
+                        android:id="@+id/responseHelpButton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Help"
+                        android:src="@drawable/ic_help"
+                        android:tint="#FF00AAFF" />
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:boxBackgroundColor="#ff12182b"
+                    app:boxStrokeColor="#ff00aaff" >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/responseField"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:gravity="top|center_vertical|center|center_horizontal|left|start"
+                        android:inputType="textMultiLine"
+                        android:textColor="#ffffffff" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/saveButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="#ff12182b"
+                    android:elevation="4dp"
+                    android:text="Save"
+                    android:textColor="#ffffffff"
+                    android:onClick="createCommand"/>
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#ff1f1b2e"
+                    android:elevation="4dp"
+                    android:text="Cancel"
+                    android:textColor="#ffffffff" 
+                    android:onClick="cancelCommand"/>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0E17"
+    tools:context=".ZkUdYs">
+
+    <!-- Top Bar -->
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="1dp"
+        android:background="#121826"
+        android:elevation="6dp">
+    
+        <!-- Title -->
+        <TextView
+            android:id="@+id/top_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROCK"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+    
+        <!-- Search Input (Hidden by default) -->
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search..."
+            android:background="@drawable/searchbar_bg"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:visibility="gone"
+            android:inputType="text"
+            android:layout_centerVertical="true"
+            android:textSize="16sp" />
+    
+        <!-- Search Icon -->
+        <ImageView
+            android:id="@+id/top_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_toStartOf="@id/top_settings"
+            android:layout_marginEnd="12dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_search"
+            android:tint="#4A5568"
+            android:visibility="gone"
+            android:contentDescription="Search" />
+    
+        <!-- Settings Icon -->
+        <ImageView
+            android:id="@+id/top_settings"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_settings"
+            android:tint="#9F5AFF"
+            android:contentDescription="Settings" />
+    </RelativeLayout>
+
+    <!-- Fragment Content -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"
+        android:layout_above="@id/nav_wrapper" />
+
+    <!-- Bottom Navigation Wrapper -->
+    <RelativeLayout
+        android:id="@+id/nav_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true">
+
+        <!-- Background -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/nav_background" />
+
+        <!-- Nav Items Container -->
+        <LinearLayout
+            android:id="@+id/nav_items_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <!-- Log -->
+            <LinearLayout
+                android:id="@+id/nav_log"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/icon_log"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_log"
+                    android:tint="#4A5568" />
+
+                <TextView
+                    android:id="@+id/text_log"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log"
+                    android:textColor="#9F5AFF"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Commands -->
+            <LinearLayout
+                android:id="@+id/nav_commands"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/icon_commands"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_code"
+                    android:tint="#4A5568" />
+
+                <TextView
+                    android:id="@+id/text_commands"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Commands"
+                    android:textColor="#9F5AFF"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Dashboard -->
+            <LinearLayout
+                android:id="@+id/nav_dashboard"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/icon_dashboard"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_dashboard"
+                    android:tint="#9F5AFF" />
+
+                <TextView
+                    android:id="@+id/text_dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dashboard"
+                    android:textColor="#9F5AFF"
+                    android:textSize="10sp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <!-- Config -->
+            <LinearLayout
+                android:id="@+id/nav_config"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/icon_config"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_config"
+                    android:tint="#4A5568" />
+
+                <TextView
+                    android:id="@+id/text_config"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Config"
+                    android:textColor="#9F5AFF"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Custom Commands -->
+            <LinearLayout
+                android:id="@+id/nav_custom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/icon_custom"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_custom_command"
+                    android:tint="#4A5568" />
+
+                <TextView
+                    android:id="@+id/text_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Custom"
+                    android:textColor="#9F5AFF"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Indicator -->
+        <RelativeLayout
+            android:id="@+id/indicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/indicator_bg">
+
+            <View
+                android:layout_width="14dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="-15dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/indicator_left" />
+
+            <View
+                android:layout_width="14dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="-15dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/indicator_right" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

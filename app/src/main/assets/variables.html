@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCK Command Variables</title>
+    <style>
+        :root {
+            --rock-blurple: #5865F2;
+            --rock-purpule: #9F5AFF;
+            --rock-yellow: #FEE75C;
+            --rock-red: #ED4245;
+            --rock-dark: #2C2F33;
+            --rock-darker: #23272A;
+            --rock-light: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--rock-dark);
+            color: var(--rock-light);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--rock-darker);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--rock-purpule);
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: #B9BBBE;
+            margin-top: 5px;
+        }
+        
+        .variable-section {
+            background-color: var(--rock-darker);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--rock-blurple);
+            border-bottom: 2px solid var(--rock-blurple);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .variable-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 🔄 Smaller min width for mobile fix */
+            gap: 15px;
+            max-width: 100%; /* ✅ Prevent overflow */
+            width: 100%;
+            overflow-x: auto; /* ✅ Extra safe */
+        }
+        
+        .variable-card {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--rock-purpule);
+            padding: 15px;
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+        
+        .variable-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .variable-name {
+            font-family: 'Consolas', monospace;
+            color: var(--rock-yellow);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            word-break: break-all;
+        }
+        
+        .variable-desc {
+            color: #B9BBBE;
+            font-size: 0.95rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .badge-user {
+            background-color: var(--rock-blurple);
+        }
+        
+        .badge-bot {
+            background-color: var(--rock-purpule);
+        }
+        
+        .badge-channel {
+            background-color: #F47FFF;
+        }
+        
+        .badge-guild {
+            background-color: #FAA61A;
+        }
+        
+        .badge-time {
+            background-color: #EB459E;
+        }
+        
+        .badge-other {
+            background-color: #747F8D;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #72767D;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ROCK Command Variables</h1>
+            <p class="subtitle">Dynamic variables available for use in command responses</p>
+        </header>
+        
+        <section class="variable-section">
+            <h2>User Information</h2>
+            <div class="variable-grid">
+                <div class="variable-card">
+                    <span class="badge badge-user">USER</span>
+                    <div class="variable-name">$cmdUserId</div>
+                    <div class="variable-desc">The ID of the user who executed the command</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-user">USER</span>
+                    <div class="variable-name">$cmdUserName</div>
+                    <div class="variable-desc">The username of the command executor (without discriminator)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-user">USER</span>
+                    <div class="variable-name">$cmdUserTag</div>
+                    <div class="variable-desc">The full user tag (username#discriminator)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-user">USER</span>
+                    <div class="variable-name">$cmdUserAvatar</div>
+                    <div class="variable-desc">URL of the user's avatar image</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="variable-section">
+            <h2>Bot Information</h2>
+            <div class="variable-grid">
+                <div class="variable-card">
+                    <span class="badge badge-bot">BOT</span>
+                    <div class="variable-name">$botUserId</div>
+                    <div class="variable-desc">The bot's user ID</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-bot">BOT</span>
+                    <div class="variable-name">$botUserName</div>
+                    <div class="variable-desc">The bot's username</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="variable-section">
+            <h2>Channel Information</h2>
+            <div class="variable-grid">
+                <div class="variable-card">
+                    <span class="badge badge-channel">CHANNEL</span>
+                    <div class="variable-name">$cmdChannelId</div>
+                    <div class="variable-desc">ID of the channel where command was executed</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-channel">CHANNEL</span>
+                    <div class="variable-name">$cmdChannelName</div>
+                    <div class="variable-desc">Name of the channel (returns "DM" for DMs)</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="variable-section">
+            <h2>Guild Information</h2>
+            <div class="variable-grid">
+                <div class="variable-card">
+                    <span class="badge badge-guild">GUILD</span>
+                    <div class="variable-name">$cmdGuildId</div>
+                    <div class="variable-desc">ID of the guild where command was executed (empty in DMs)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-guild">GUILD</span>
+                    <div class="variable-name">$cmdGuildName</div>
+                    <div class="variable-desc">Name of the guild (returns "DM" for DMs)</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="variable-section">
+            <h2>Mentioned Entities</h2>
+            <div class="variable-grid">
+                <div class="variable-card">
+                    <span class="badge badge-user">USER</span>
+                    <div class="variable-name">$mentionedUserId</div>
+                    <div class="variable-desc">ID of the mentioned user (if any)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-user">USER</span>
+                    <div class="variable-name">$mentionedUserName</div>
+                    <div class="variable-desc">Username of the mentioned user (if any)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-user">USER</span>
+                    <div class="variable-name">$mentionedUserTag</div>
+                    <div class="variable-desc">Full tag of the mentioned user (if any)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-user">USER</span>
+                    <div class="variable-name">$mentionedUserAvatar</div>
+                    <div class="variable-desc">Avatar URL of the mentioned user (if any)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-channel">CHANNEL</span>
+                    <div class="variable-name">$mentionedChannelId</div>
+                    <div class="variable-desc">ID of the mentioned channel (if any)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-channel">CHANNEL</span>
+                    <div class="variable-name">$mentionedChannelName</div>
+                    <div class="variable-desc">Name of the mentioned channel (if any)</div>
+                </div>
+            </div>
+        </section>
+        <section class="variable-section">
+            <h2>Functional & Commands components</h2>
+            <div class="variable-grid">
+                <div class="variable-card">
+                    <span class="badge badge-other">COMMAND</span>
+                    <div class="variable-name">$args</div>
+                    <div class="variable-desc">All arguments passed with the command</div>
+                </div>
+                <div class="variable-card">
+                    <span class="badge badge-other">COMMAND</span>
+                    <div class="variable-name">$arg[n]</div>
+                    <div class="variable-desc">Argument by it's index ex- arg[1] </div>
+                </div>
+                <div class="variable-card">
+                    <span class="badge badge-other">COMMAND</span>
+                    <div class="variable-name">$random(min-max)</div>
+                    <div class="variable-desc">Random Number between minimum and maximum ex- $random(1-100)</div>
+                </div>
+                <div class="variable-card">
+                    <span class="badge badge-other">COMMAND</span>
+                    <div class="variable-name">$random[option1, option2, option3, ....]</div>
+                    <div class="variable-desc">Random word from given list separated by commas ' , ' ex- $random[apple, banana]</div>
+                </div>
+                <div class="variable-card">
+                    <span class="badge badge-other">COMMAND</span>
+                    <div class="variable-name">$calc[expression]</div>
+                    <div class="variable-desc">Calculate mathmatics expressions ex- <br>
+                    ➕ `5 + 7` = $calc[5+7]<br>
+                    ➖ `10 - 4` = $calc[10-4]<br>
+                    ✖️ `6 * 6` = $calc[6*6]<br>
+                    ➗ `12 / 4` = $calc[12/4]<br>
+                    `2^8` = $calc[2**8]<br><br>
+                    Multiple calculation expression works ex-<br>
+                    $calc[5/7+8*2-1]<br><br>
+                    Also can pass argument ex-<br>
+                    $calc[$arg[1]+$arg[2]]</div>
+                </div>
+            </div>
+        </section>
+        <section class="variable-section">
+            <h2>Time Information</h2>
+            <div class="variable-grid">
+                <div class="variable-card">
+                    <span class="badge badge-time">TIME</span>
+                    <div class="variable-name">$time</div>
+                    <div class="variable-desc">Current time in HH:MM:SS format</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-time">TIME</span>
+                    <div class="variable-name">$date</div>
+                    <div class="variable-desc">Current date in YYYY-MM-DD format</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-time">TIME</span>
+                    <div class="variable-name">$year</div>
+                    <div class="variable-desc">Current year</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-time">TIME</span>
+                    <div class="variable-name">$month</div>
+                    <div class="variable-desc">Current month (1-12)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-time">TIME</span>
+                    <div class="variable-name">$day</div>
+                    <div class="variable-desc">Current day of month (1-31)</div>
+                </div>
+                
+                <div class="variable-card">
+                    <span class="badge badge-time">TIME</span>
+                    <div class="variable-name">$weekday</div>
+                    <div class="variable-desc">Current weekday name (e.g. "Monday")</div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>These variables can be used in command responses to provide dynamic content.</p>
+            <p>© 2025 Rock SelfBot Documentation</p>
+        </footer>
+    </div>
+</body>
+</html>

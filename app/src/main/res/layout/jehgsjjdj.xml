@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/config_scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0E17">
+
+    <LinearLayout
+        android:id="@+id/config_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Token -->
+        <EditText
+            android:id="@+id/config_tokenEdit"
+            android:hint="Token"
+            android:backgroundTint="#9b59b6"
+            android:textColor="#ffffff"
+            android:textColorHint="#888888"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Prefix -->
+        <EditText
+            android:id="@+id/config_prefixEdit"
+            android:hint="Prefix"
+            android:backgroundTint="#9b59b6"
+            android:textColor="#ffffff"
+            android:textColorHint="#888888"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        
+        <CheckBox
+            android:id="@+id/config_cmdtriggerdel"
+            android:text="Delete Command Trigger Message"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <!-- Allowed IDs -->
+        <TextView
+            android:text="Allowed IDs"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/config_allowedIdContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/config_allowedIdInput"
+                android:hint="Add ID"
+                android:backgroundTint="#9b59b6"
+                android:textColor="#ffffff"
+                android:textColorHint="#888888"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/config_addAllowedIdBtn"
+                android:text="Add"
+                android:background="#8e44ad"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- AFK -->
+        <CheckBox
+            android:id="@+id/config_afkEnabled"
+            android:text="Enable AFK"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/config_afkMessage"
+            android:hint="AFK Message"
+            android:backgroundTint="#9b59b6"
+            android:textColor="#ffffff"
+            android:textColorHint="#888888"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Auto Replies -->
+        <TextView
+            android:text="Auto Replies"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/config_autoReplyContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/config_autoReplyInput"
+                android:hint="Add Message"
+                android:backgroundTint="#9b59b6"
+                android:textColor="#ffffff"
+                android:textColorHint="#888888"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/config_addAutoReplyBtn"
+                android:text="Add"
+                android:background="#8e44ad"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- AutoReply Users -->
+        <TextView
+            android:text="AutoReply Users"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/config_autoReplyUserContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/config_autoReplyUserInput"
+                android:hint="Add User ID"
+                android:backgroundTint="#9b59b6"
+                android:textColor="#ffffff"
+                android:textColorHint="#888888"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/config_addAutoReplyUserBtn"
+                android:text="Add"
+                android:background="#8e44ad"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- AutoReply Channels -->
+        <TextView
+            android:text="AutoReply Channels"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/config_autoReplyChannelContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/config_autoReplyChannelInput"
+                android:hint="Add Channel ID"
+                android:backgroundTint="#9b59b6"
+                android:textColor="#ffffff"
+                android:textColorHint="#888888"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/config_addAutoReplyChannelBtn"
+                android:text="Add"
+                android:background="#8e44ad"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Copycat Users -->
+        <TextView
+            android:text="Copycat Users"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/config_copycatUserContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/config_copycatUserInput"
+                android:hint="Add User ID"
+                android:backgroundTint="#9b59b6"
+                android:textColor="#ffffff"
+                android:textColorHint="#888888"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/config_addCopycatUserBtn"
+                android:text="Add"
+                android:background="#8e44ad"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/config_saveBtn"
+            android:text="Save"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6c5ce7"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

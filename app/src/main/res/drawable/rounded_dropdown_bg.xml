@@ -1,0 +1,11 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="#441E1B44" /> <!-- Transparent purple bg -->
+
+    <stroke
+        android:width="2dp"
+        android:color="#8844C3F7" /> <!-- Light bluish-purple border -->
+
+    <corners android:radius="24dp" />
+</shape>

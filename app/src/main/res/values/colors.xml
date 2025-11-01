@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#12182B</color>
+    <color name="colorPrimaryDark">#0A0E17</color>
+    <color name="colorAccent">#9F5AFF</color>
+    <color name="purple_500">#9F5AFF</color>
+    <color name="gray_600">#4A5568</color>
+    <color name="nav_item_unselected">#4A5568</color>
+</resources>
